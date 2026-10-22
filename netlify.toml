@@ -1,0 +1,30 @@
+[build]
+command = "npm run build"
+publish = "dist"
+functions = "netlify/functions"
+
+[build.environment]
+NODE_VERSION = "20"
+
+[functions]
+included_files = ["characters/**"]
+
+[[redirects]]
+from = "/api/characters"
+to = "/.netlify/functions/characters"
+status = 200
+
+[[redirects]]
+from = "/api/chat"
+to = "/.netlify/functions/chat"
+status = 200
+
+[[headers]]
+for = "/*"
+
+[headers.values]
+X-Content-Type-Options = "nosniff"
+X-Frame-Options = "DENY"
+Referrer-Policy = "no-referrer"
+Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+Content-Security-Policy = "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:; connect-src 'self'"

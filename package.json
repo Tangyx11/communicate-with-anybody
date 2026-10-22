@@ -1,0 +1,15 @@
+{
+  "name": "voices-across-time",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node --watch server.mjs",
+    "build": "node build.mjs",
+    "check": "node --check server.mjs && node --check app.js && node --check build.mjs && node --check netlify/functions/characters.mjs && node --check netlify/functions/chat.mjs"
+  },
+  "engines": {
+    "node": ">=18.17"
+  }
+}
